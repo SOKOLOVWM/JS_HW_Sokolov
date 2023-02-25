@@ -43,4 +43,13 @@ console.log(a18, typeof a18);
 const width = 10;
 const height = 23;
 const SPryam = width * height;
-console.log(SPryam);
+console.log(`Площадь прямоугольника: ${SPryam}см`);
+
+//Task 04
+
+const cylinderHeight = 10;
+const cylinderDiameter = a7;
+const VCilindra = Number(
+	(Math.PI * cylinderDiameter * cylinderHeight).toFixed(2)
+);
+console.log(`Объем цилиндра: ${VCilindra}м`);
