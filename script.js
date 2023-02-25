@@ -53,3 +53,9 @@ const VCilindra = Number(
 	(Math.PI * cylinderDiameter * cylinderHeight).toFixed(2)
 );
 console.log(`Объем цилиндра: ${VCilindra}м`);
+
+//Task 05
+
+const radius = 5;
+const SKruga = +(Math.PI * Math.pow(radius, 2)).toFixed(2);
+console.log(`Площадь круга ${SKruga}см`);
