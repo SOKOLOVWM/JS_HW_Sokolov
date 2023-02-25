@@ -37,3 +37,10 @@ console.log(a15, typeof a15);
 console.log(a16, typeof a16);
 console.log(a17, typeof a17);
 console.log(a18, typeof a18);
+
+//Task 03
+
+const width = 10;
+const height = 23;
+const SPryam = width * height;
+console.log(SPryam);
