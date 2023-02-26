@@ -67,4 +67,11 @@ let b = 7;
 let h = 10;
 const STrap = ((a + b) / 2) * h;
 console.log(`Площадь трапеции ${STrap}см`);
-console.log(typeof STrap);
+
+//Task 07
+
+const amount = 2000000;
+const rate = 10;
+const years = 5;
+const Pereplata = ((amount * rate) / 100) * years;
+console.log(`Переплата по кредиту: ${Pereplata} рублей`);
