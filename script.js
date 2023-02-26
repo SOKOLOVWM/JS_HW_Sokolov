@@ -75,3 +75,11 @@ const rate = 10;
 const years = 5;
 const Pereplata = ((amount * rate) / 100) * years;
 console.log(`Переплата по кредиту: ${Pereplata} рублей`);
+
+//Task 08
+
+a = 8;
+b = 3;
+console.log("for a+2(x-b)=16 x = 7");
+console.log("for b(x+15)=a+6x x = 37/3");
+console.log("for x+2x+ax+bx=23780 x = 11870/7");
