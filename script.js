@@ -23,8 +23,39 @@
 
 /* TASK 02 */
 
+// {
+// 	const yearCurrant = 2023;
+// 	const yearBirth = yearCurrant - age;
+// 	console.log(`${name} was born in ${yearBirth}.`);
+// }
+
+/* TASK 03 */
+
+// {
+// 	const str = prompt("Enter number of 6 characters", "");
+// 	let sumLeft = 0;
+// 	let sumRight = 0;
+
+// 	if (str.length === 6) {
+// 		for (let i = 0, y = str.length - 1; i < 3; i++, y--) {
+// 			sumLeft += +str[i];
+// 			sumRight += +str[y];
+// 		}
+// 		console.log(sumLeft === sumRight ? "Yes" : "No");
+// 	} else {
+// 		console.log("Incorrect quantity of characters");
+// 	}
+// }
+
+/* TASK 04 */
+
+/* Если переменная a больше нуля, то выведите 'Верно', иначе выведите 'Неверно'.
+Проверьте работу скрипта при a, равном 1, 0, -3. */
+
 {
-	const yearCurrant = 2023;
-	const yearBirth = yearCurrant - age;
-	console.log(`${name} was born in ${yearBirth}.`);
+	const a = prompt("Enter number", "");
+
+	const result = +a > 0 ? "correct" : "incorrect";
+
+	console.log(`Number ${a} is ${result}`);
 }
