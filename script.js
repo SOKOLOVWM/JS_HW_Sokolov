@@ -54,3 +54,26 @@
 // 	const result = +a > 0 ? "correct" : "incorrect";
 // 	console.log(`Number ${a} is ${result}`);
 // }
+
+/* TASK 05 */
+
+{
+	let a = 10;
+	let b = 2;
+
+	let sum = a + b;
+	let dif = a - b;
+	let mul = a * b;
+	let div = Number(a / b).toFixed(2);
+	let squ = 0;
+
+	if (sum > 1) squ = Math.pow(sum, 2);
+
+	console.log(`
+		Sum is ${sum}
+		Dif is ${dif}
+		Mul is ${mul}
+		Div is ${div}
+		Squ is ${squ}
+	`);
+}
