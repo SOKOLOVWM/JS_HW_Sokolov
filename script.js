@@ -4,6 +4,8 @@
 
 // const name = prompt("Your name");
 // const age = prompt("Your age");
+// 	let a = 10;
+// 	let b = 2;
 
 /* TASK 01 */
 
@@ -57,23 +59,28 @@
 
 /* TASK 05 */
 
-{
-	let a = 10;
-	let b = 2;
+// {
+// 	let sum = a + b;
+// 	let dif = a - b;
+// 	let mul = a * b;
+// 	let div = Number(a / b).toFixed(2);
+// 	let squ = 0;
 
-	let sum = a + b;
-	let dif = a - b;
-	let mul = a * b;
-	let div = Number(a / b).toFixed(2);
-	let squ = 0;
+// 	if (sum > 1) squ = Math.pow(sum, 2);
 
-	if (sum > 1) squ = Math.pow(sum, 2);
+// 	console.log(`
+// 		Sum is ${sum}
+// 		Dif is ${dif}
+// 		Mul is ${mul}
+// 		Div is ${div}
+// 		Squ is ${squ}
+// 	`);
+// }
 
-	console.log(`
-		Sum is ${sum}
-		Dif is ${dif}
-		Mul is ${mul}
-		Div is ${div}
-		Squ is ${squ}
-	`);
+/* TASK 06 */
+
+if ((a > 2 && a < 11) || (b >= 6 && b < 14)) {
+	console.log("Верно");
+} else {
+	console.log("Неверно");
 }
