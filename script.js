@@ -79,8 +79,31 @@
 
 /* TASK 06 */
 
-if ((a > 2 && a < 11) || (b >= 6 && b < 14)) {
-	console.log("Верно");
-} else {
-	console.log("Неверно");
+// {
+// 	if ((a > 2 && a < 11) || (b >= 6 && b < 14)) {
+// 		console.log("Верно");
+// 	} else {
+// 		console.log("Неверно");
+// 	}
+// }
+
+/* TASK 07 */
+
+{
+	const n = +prompt("Enter number from 0 to 59", 0);
+
+	if (n >= 0 && n <= 59) {
+		let result =
+			n >= 0 && n <= 15
+				? "first"
+				: n <= 30
+				? "second"
+				: n <= 45
+				? "third"
+				: "fourth";
+
+		console.log(result);
+	} else {
+		console.log("Enter correct value");
+	}
 }
