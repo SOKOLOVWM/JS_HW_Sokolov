@@ -110,12 +110,48 @@
 
 /* TASK 08 */
 
-{
-	const day = +prompt("Enter day of month", 1);
+// {
+// 	const day = +prompt("Enter day of month", 1);
 
-	if (day > 0 && day <= 31) {
-		console.log(day < 11 ? "first" : day < 21 ? "second" : "third");
+// 	if (day > 0 && day <= 31) {
+// 		console.log(day < 11 ? "first" : day < 21 ? "second" : "third");
+// 	} else {
+// 		console.log("Enter correct value");
+// 	}
+// }
+
+/* TASK 09 */
+
+{
+	const day = +prompt("Enter quantity of days", 1);
+
+	if (day >= 365) {
+		const year = Math.floor(day / 365);
+		console.log(`${year} year`);
 	} else {
-		console.log("Enter correct value");
+		console.log("Less than a year");
 	}
+
+	if (day >= 31) {
+		const month = Math.floor(day / 31);
+		console.log(`${month} months`);
+	} else {
+		console.log("Less than a month");
+	}
+
+	if (day >= 7) {
+		const week = Math.floor(day / 7);
+		console.log(`${week} weeks`);
+	} else {
+		console.log("Less than a week");
+	}
+
+	const hour = Math.floor(day * 24);
+	console.log(`${hour} hours`);
+
+	const minute = Math.floor(day * 24 * 60);
+	console.log(`${minute} minutes`);
+
+	const second = Math.floor(day * 24 * 60 * 60);
+	console.log(`${second} seconds`);
 }
