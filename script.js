@@ -89,20 +89,32 @@
 
 /* TASK 07 */
 
+// {
+// 	const n = +prompt("Enter number from 0 to 59", 0);
+
+// 	if (n >= 0 && n <= 59) {
+// 		let result =
+// 			n <= 15
+// 				? "first"
+// 				: n <= 30
+// 				? "second"
+// 				: n <= 45
+// 				? "third"
+// 				: "fourth";
+
+// 		console.log(result);
+// 	} else {
+// 		console.log("Enter correct value");
+// 	}
+// }
+
+/* TASK 08 */
+
 {
-	const n = +prompt("Enter number from 0 to 59", 0);
+	const day = +prompt("Enter day of month", 1);
 
-	if (n >= 0 && n <= 59) {
-		let result =
-			n >= 0 && n <= 15
-				? "first"
-				: n <= 30
-				? "second"
-				: n <= 45
-				? "third"
-				: "fourth";
-
-		console.log(result);
+	if (day > 0 && day <= 31) {
+		console.log(day < 11 ? "first" : day < 21 ? "second" : "third");
 	} else {
 		console.log("Enter correct value");
 	}
