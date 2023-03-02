@@ -49,13 +49,8 @@
 
 /* TASK 04 */
 
-/* Если переменная a больше нуля, то выведите 'Верно', иначе выведите 'Неверно'.
-Проверьте работу скрипта при a, равном 1, 0, -3. */
-
-{
-	const a = prompt("Enter number", "");
-
-	const result = +a > 0 ? "correct" : "incorrect";
-
-	console.log(`Number ${a} is ${result}`);
-}
+// {
+// 	const a = prompt("Enter number", "");
+// 	const result = +a > 0 ? "correct" : "incorrect";
+// 	console.log(`Number ${a} is ${result}`);
+// }
