@@ -1,85 +1,189 @@
-//Task 02
+"use strict";
 
-let a1 = 5 % 3,
-	a2 = 3 % 5,
-	a3 = 5 + "3",
-	a4 = "5" - 3,
-	a5 = 75 + "кг",
-	a6 = 785 * 653,
-	a7 = 100 / 25,
-	a8 = 0 * 0,
-	a9 = 0 / 2,
-	a10 = 89 / 0,
-	a11 = 98 + 2,
-	a12 = 5 - 98,
-	a13 = (8 + 56 * 4) / 5,
-	a14 = ((9 - 12) * 7) / (5 + 2),
-	a15 = +"123",
-	a16 = 1 || 0,
-	a17 = false || true,
-	a18 = true > 0;
+/* COMMON VARIABLES*/
 
-console.log(a1, typeof a1);
-console.log(a2, typeof a2);
-console.log(a3, typeof a3);
-console.log(a4, typeof a4);
-console.log(a5, typeof a5);
-console.log(a6, typeof a6);
-console.log(a7, typeof a7);
-console.log(a8, typeof a8);
-console.log(a9, typeof a9);
-console.log(a10, typeof a10);
-console.log(a11, typeof a11);
-console.log(a12, typeof a12);
-console.log(a13, typeof a13);
-console.log(a14, typeof a14);
-console.log(a15, typeof a15);
-console.log(a16, typeof a16);
-console.log(a17, typeof a17);
-console.log(a18, typeof a18);
+const name = prompt("Your name");
+const age = prompt("Your age");
+const a = 10;
+const b = 2;
 
-//Task 03
+/* TASK 01 */
 
-const width = 10;
-const height = 23;
-const SPryam = width * height;
-console.log(`Площадь прямоугольника: ${SPryam}см`);
+{
+	const city = prompt("Your city");
+	const phone = prompt("Your phone");
+	const email = prompt("Your email");
+	const company = prompt("Your company");
 
-//Task 04
+	console.log(`
+		My name is ${name}.
+		I am ${age} years old.
+		I live in ${city} and work for ${company}.
+		My contacts are: phone ${phone}, e-mail ${email}.
+	`);
+}
 
-const cylinderHeight = 10;
-const cylinderDiameter = a7;
-const VCilindra = Number(
-	(Math.PI * cylinderDiameter * cylinderHeight).toFixed(2)
-);
-console.log(`Объем цилиндра: ${VCilindra}м`);
+/* TASK 02 */
 
-//Task 05
+{
+	const yearCurrant = new Date().getFullYear();
+	console.log(yearCurrant);
+	const yearBirth = yearCurrant - age;
+	console.log(`${name} was born in ${yearBirth}.`);
+}
 
-const radius = 5;
-const SKruga = +(Math.PI * Math.pow(radius, 2)).toFixed(2);
-console.log(`Площадь круга ${SKruga}см`);
+/* TASK 03 */
 
-//Task 06
+{
+	const str = prompt("Enter number of 6 characters", "");
+	let sumLeft = 0;
+	let sumRight = 0;
 
-let a = 5;
-let b = 7;
-let h = 10;
-const STrap = ((a + b) / 2) * h;
-console.log(`Площадь трапеции ${STrap}см`);
+	if (str.length === 6) {
+		for (let i = 0, y = str.length - 1; i < 3; i++, y--) {
+			sumLeft += +str[i];
+			sumRight += +str[y];
+		}
+		console.log(sumLeft === sumRight ? "Yes" : "No");
+	} else {
+		console.log("Incorrect quantity of characters");
+	}
+}
 
-//Task 07
+/* TASK 04 */
 
-const amount = 2000000;
-const rate = 10;
-const years = 5;
-const Pereplata = ((amount * rate) / 100) * years;
-console.log(`Переплата по кредиту: ${Pereplata} рублей`);
+{
+	const a = prompt("Enter number", "");
+	const result = +a > 0 ? "correct" : "incorrect";
+	console.log(`Number ${a} is ${result}`);
+}
 
-//Task 08
+/* TASK 05 */
 
-a = 8;
-b = 3;
-console.log("for a+2(x-b)=16 x = 7");
-console.log("for b(x+15)=a+6x x = 37/3");
-console.log("for x+2x+ax+bx=23780 x = 11870/7");
+{
+	const sum = a + b;
+	const dif = a - b;
+	const mul = a * b;
+	const div = Number(a / b).toFixed(2);
+	let squ = 0;
+
+	if (sum > 1) squ = Math.pow(sum, 2);
+
+	console.log(`
+		Sum is ${sum}
+		Dif is ${dif}
+		Mul is ${mul}
+		Div is ${div}
+		Squ is ${squ}
+	`);
+}
+
+/* TASK 06 */
+
+{
+	if ((a > 2 && a < 11) || (b >= 6 && b < 14)) {
+		console.log("Верно");
+	} else {
+		console.log("Неверно");
+	}
+}
+
+/* TASK 07 */
+
+{
+	const n = Math.floor(Math.random() * 59 + 1);
+
+	if (n >= 0 && n <= 59) {
+		let result =
+			n <= 15 ? "first" : n <= 30 ? "second" : n <= 45 ? "third" : "fourth";
+
+		console.log(result);
+	} else {
+		console.log("Enter correct value");
+	}
+}
+
+/* TASK 08 */
+
+{
+	const day = +prompt("Enter day of month", 1);
+
+	if (day > 0 && day <= 31) {
+		console.log(day < 11 ? "first" : day < 21 ? "second" : "third");
+	} else {
+		console.log("Enter correct value");
+	}
+}
+
+/* TASK 09 */
+
+{
+	const day = +prompt("Enter quantity of days", 1);
+
+	if (day >= 365) {
+		const year = Math.floor(day / 365);
+		console.log(`${year} year`);
+	} else {
+		console.log("Less than a year");
+	}
+
+	if (day >= 31) {
+		const month = Math.floor(day / 31);
+		console.log(`${month} months`);
+	} else {
+		console.log("Less than a month");
+	}
+
+	if (day >= 7) {
+		const week = Math.floor(day / 7);
+		console.log(`${week} weeks`);
+	} else {
+		console.log("Less than a week");
+	}
+
+	const hour = Math.floor(day * 24);
+	console.log(`${hour} hours`);
+
+	const minute = Math.floor(day * 24 * 60);
+	console.log(`${minute} minutes`);
+
+	const second = Math.floor(day * 24 * 60 * 60);
+	console.log(`${second} seconds`);
+}
+
+/* TASK 10 */
+
+{
+	const day = Math.floor(Math.random() * 365 + 1);
+	const month = day > 360 ? 12 : Math.ceil(day / 30);
+
+	switch (month) {
+		case 1:
+		case 2:
+		case 12:
+			console.log(`Month ${month} is winter`);
+			break;
+
+		case 3:
+		case 4:
+		case 5:
+			console.log(`Month ${month} is spring`);
+			break;
+
+		case 6:
+		case 7:
+		case 8:
+			console.log(`Month ${month} is summer`);
+			break;
+
+		case 9:
+		case 10:
+		case 11:
+			console.log(`Month ${month} is autumn`);
+			break;
+
+		default:
+			console.log("Incorrect value");
+			break;
+	}
+}
