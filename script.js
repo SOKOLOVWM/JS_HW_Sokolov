@@ -1,189 +1,222 @@
 "use strict";
 
-/* COMMON VARIABLES*/
-
-const name = prompt("Your name");
-const age = prompt("Your age");
-const a = 10;
-const b = 2;
-
 /* TASK 01 */
 
-{
-	const city = prompt("Your city");
-	const phone = prompt("Your phone");
-	const email = prompt("Your email");
-	const company = prompt("Your company");
+/* 
+	Выведите числа от 1 до 50 и от 35 до 8.
+*/
 
-	console.log(`
-		My name is ${name}.
-		I am ${age} years old.
-		I live in ${city} and work for ${company}.
-		My contacts are: phone ${phone}, e-mail ${email}.
-	`);
+{
+	for (let i = 1; i <= 50; i++) {
+		console.log(i);
+	}
+
+	for (let i = 35; i >= 8; i--) {
+		console.log(i);
+	}
 }
 
 /* TASK 02 */
 
+/* 
+	Выведите столбец чисел от 89 до 11. 
+	Воспользуйтесь циклом while.
+	Отделите числа тегом <br /> друг от друга, чтобы получить столбец, а не строку.
+*/
+
 {
-	const yearCurrant = new Date().getFullYear();
-	console.log(yearCurrant);
-	const yearBirth = yearCurrant - age;
-	console.log(`${name} was born in ${yearBirth}.`);
+	let num = 89;
+
+	while (num >= 11) {
+		document.write(`${num}</br>`);
+		num--;
+	}
 }
 
 /* TASK 03 */
 
-{
-	const str = prompt("Enter number of 6 characters", "");
-	let sumLeft = 0;
-	let sumRight = 0;
+/* 
+	С помощью цикла найдите сумму чисел от 0 до 100.
+*/
 
-	if (str.length === 6) {
-		for (let i = 0, y = str.length - 1; i < 3; i++, y--) {
-			sumLeft += +str[i];
-			sumRight += +str[y];
-		}
-		console.log(sumLeft === sumRight ? "Yes" : "No");
-	} else {
-		console.log("Incorrect quantity of characters");
+{
+	let sum = 0;
+
+	for (let i = 1; i <= 100; i++) {
+		sum += i;
 	}
+
+	console.log(sum);
 }
 
 /* TASK 04 */
 
+/* 
+	Найдите сумму чисел в каждом числе от 1 до 5.
+	Например: в числе 3 сумма составляет 6 (1+2+3).
+*/
+
 {
-	const a = prompt("Enter number", "");
-	const result = +a > 0 ? "correct" : "incorrect";
-	console.log(`Number ${a} is ${result}`);
+	for (let i = 1; i <= 5; i++) {
+		let sum = 0;
+
+		for (let j = 1; j <= i; j++) {
+			sum += j;
+		}
+
+		console.log(`${i} sum of numbers is ${sum}`);
+	}
 }
 
 /* TASK 05 */
 
+/* 
+	Выведите чётные числа от 8 до 56. 
+	Решить задание через while и for.
+*/
+
 {
-	const sum = a + b;
-	const dif = a - b;
-	const mul = a * b;
-	const div = Number(a / b).toFixed(2);
-	let squ = 0;
+	let start = 8;
+	let end = 56;
 
-	if (sum > 1) squ = Math.pow(sum, 2);
+	for (let i = start; i <= end; i++) {
+		if (i % 2 == 0) {
+			console.log(i);
+		}
+	}
 
-	console.log(`
-		Sum is ${sum}
-		Dif is ${dif}
-		Mul is ${mul}
-		Div is ${div}
-		Squ is ${squ}
-	`);
+	while (start <= end) {
+		if (start % 2 == 0) {
+			console.log(start);
+		}
+
+		start++;
+	}
 }
 
 /* TASK 06 */
 
+/* 
+	Необходимо вывести на экран полную таблицу умножения (от 2 до 10).
+	2*2 = 4 
+	2*3 = 6 
+	2*4 = 8 
+	2*5 = 10
+*/
+
 {
-	if ((a > 2 && a < 11) || (b >= 6 && b < 14)) {
-		console.log("Верно");
-	} else {
-		console.log("Неверно");
+	for (let i = 2; i <= 10; i++) {
+		for (let j = 2; j <= 10; j++) {
+			console.log(`${i} * ${j} = ${i * j}`);
+		}
+		console.log("\n");
 	}
 }
 
 /* TASK 07 */
 
+/* 
+	Дано число n=1000. 
+	Делите его на 2 столько раз, пока результат деления не станет меньше 50.
+	Какое число получится? 
+	Посчитайте количество итераций, необходимых для этого (итерация - это проход цикла), и запишите его в переменную num.
+*/
+
 {
-	const n = Math.floor(Math.random() * 59 + 1);
+	let n = 1000;
+	let i = 0;
 
-	if (n >= 0 && n <= 59) {
-		let result =
-			n <= 15 ? "first" : n <= 30 ? "second" : n <= 45 ? "third" : "fourth";
-
-		console.log(result);
-	} else {
-		console.log("Enter correct value");
+	while (n > 50) {
+		n /= 2;
+		i++;
 	}
+
+	console.log(`Final number is: ${n}`);
+	console.log(`Quantity iteration are: ${i}`);
 }
 
 /* TASK 08 */
 
-{
-	const day = +prompt("Enter day of month", 1);
+/* 
+	Запустите цикл, в котором пользователю предлагается вводить число с клавиатуры, до тех пор, пока не будет введена пустая строка или 0. 
+	После выхода из цикла выведите общую сумму и среднее арифметическое введённых чисел. 
+	Если пользователь ввел не число, то вывести сообщение об ошибке ввода. 
+	При подсчете учесть, что пользователь может ввести отрицательное значение.
+*/
 
-	if (day > 0 && day <= 31) {
-		console.log(day < 11 ? "first" : day < 21 ? "second" : "third");
-	} else {
-		console.log("Enter correct value");
+{
+	let num = 0;
+	let sum = 0;
+	let i = 0;
+
+	while (true) {
+		num = +prompt("Enter number", 10);
+
+		if (num > 0) {
+			sum += num;
+			i++;
+		} else if (num < 0) {
+			alert("Enter only positive numbers!");
+		} else if (isNaN(num)) {
+			alert("Incorrect value!");
+			break;
+		} else {
+			break;
+		}
 	}
+
+	console.log(`Sum of numbers is: ${sum}`);
+	console.log(`Arithmetic mean is: ${sum / i}`);
 }
 
 /* TASK 09 */
 
+/* 
+	Дана строка с числами разделенными пробелами 
+	«4 98 4 6 1 32 4 65 4 3 5 7 89 7 10 1 36 8 57».
+	Найдите самое большое и самое маленькое число в строке, используя цикл.
+*/
+
 {
-	const day = +prompt("Enter quantity of days", 1);
+	let str = "4 98 4 6 1 32 4 65 4 3 5 7 89 7 10 1 36 8 57";
+	let arr = str.split(" ");
 
-	if (day >= 365) {
-		const year = Math.floor(day / 365);
-		console.log(`${year} year`);
-	} else {
-		console.log("Less than a year");
+	let max = arr[0];
+	let min = arr[0];
+
+	for (let i = 1; i < arr.length; i++) {
+		max = max < arr[i] ? arr[i] : max;
+		min = min > arr[i] ? arr[i] : min;
 	}
 
-	if (day >= 31) {
-		const month = Math.floor(day / 31);
-		console.log(`${month} months`);
-	} else {
-		console.log("Less than a month");
-	}
-
-	if (day >= 7) {
-		const week = Math.floor(day / 7);
-		console.log(`${week} weeks`);
-	} else {
-		console.log("Less than a week");
-	}
-
-	const hour = Math.floor(day * 24);
-	console.log(`${hour} hours`);
-
-	const minute = Math.floor(day * 24 * 60);
-	console.log(`${minute} minutes`);
-
-	const second = Math.floor(day * 24 * 60 * 60);
-	console.log(`${second} seconds`);
+	console.log(`Max value: ${max}`);
+	console.log(`Min value: ${min}`);
 }
 
 /* TASK 10 */
 
+/* 
+	Дано произвольное целое число n. 
+	Написать программу, которая:
+		a. разбивает число n на цифры и выводит их на экран;
+		b. подсчитывает сколько цифр в числе n;
+		c. находит сумму цифр числа n;
+*/
+
 {
-	const day = Math.floor(Math.random() * 365 + 1);
-	const month = day > 360 ? 12 : Math.ceil(day / 30);
+	let n = Math.floor(Math.random() * (100000 - 100) + 100);
+	let str = n.toString();
+	let count = 0;
+	let sum = 0;
 
-	switch (month) {
-		case 1:
-		case 2:
-		case 12:
-			console.log(`Month ${month} is winter`);
-			break;
-
-		case 3:
-		case 4:
-		case 5:
-			console.log(`Month ${month} is spring`);
-			break;
-
-		case 6:
-		case 7:
-		case 8:
-			console.log(`Month ${month} is summer`);
-			break;
-
-		case 9:
-		case 10:
-		case 11:
-			console.log(`Month ${month} is autumn`);
-			break;
-
-		default:
-			console.log("Incorrect value");
-			break;
+	for (let i = 0; i < str.length; i++) {
+		console.log(str[i]);
+		count++;
+		sum += +str[i];
 	}
+
+	console.log(`
+		Number ${n} has ${count} digits.
+		Sum of digits is ${sum}.
+	`);
 }
