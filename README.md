@@ -1,1 +1,3 @@
-# JS_HW_Sokolov
+# JavaScript
+
+> Homework 05

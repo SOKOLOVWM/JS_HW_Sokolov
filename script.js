@@ -3,299 +3,406 @@
 /* TASK 01 */
 
 /* 
-	Дан массив с элементами [1, 2, 3, 4, 5]. 
-	С помощью цикла for выведите все эти элементы на экран.
+	Сделайте функцию, которая отнимает от первого числа второе и делит на
+третье. 
+	Числа передаются параметром.
 */
 
 {
-	let arr = [1, 2, 3, 4, 5];
+	let math = (a, b, c) => (a - b) / c;
 
-	for (let i = 0; i < arr.length; i++) {
-		console.log(arr[i]);
-	}
+	console.log(math(10, 4, 2)); //3
 }
 
 /* TASK 02 */
 
 /* 
-	Дан массив с числами:
-	[-2, -1, -3, 15, 0, -4, 2, -5, 9, -15, 0, 4, 5, -6, 10, 7]
-	Числа могут быть положительными и отрицательными. 
-	Выведите на экран только отрицательные числа, которые больше -10, но меньше -3.
+	Сделайте функцию, которая возвращает куб числа и его квадрат. 
+	Число передается параметром.
 */
 
 {
-	let arr = [-2, -1, -3, 15, 0, -4, 2, -5, 9, -15, 0, 4, 5, -6, 10, 7];
+	let math = (num) => {
+		let square = Math.pow(num, 2);
+		let cube = Math.pow(num, 3);
 
-	for (const i of arr) {
-		if (i < -3 && i > -10) {
-			console.log(i);
-		}
-	}
+		return `
+			Square of ${num} is ${square}.
+			Cube of ${num} is ${cube}.
+		`;
+	};
+
+	console.log(math(2)); //4 и 8
 }
 
 /* TASK 03 */
 
 /* 
-	Создайте новый массив и заполните его значениями от 23 до 57, используя цикл for и while. 
-	Выведите оба массива. 
-	С помощью цикла for найдите сумму элементов этого массива. 
-	Запишите ее в переменную result и выведите.
+	Напишите функции min и max, которые возвращают меньшее и большее из
+чисел a и b.
 */
 
 {
-	let arrWhile = [];
-	let i = 23;
+	let min = (a, b) => {
+		return a < b ? a : b;
+	};
 
-	while (i < 57) {
-		arrWhile.push(i);
-		i++;
-	}
+	let max = (a, b) => {
+		return a > b ? a : b;
+	};
 
-	for (const elem of arrWhile) {
-		console.log(elem);
-	}
-
-	let arrFor = [];
-	let sum = 0;
-
-	for (let i = 23; i < 57; i++) {
-		arrFor.push(i);
-		sum += i;
-	}
-
-	for (const elem of arrFor) {
-		console.log(elem);
-	}
-
-	console.log(sum);
+	console.log(min(4, 8)); //4
+	console.log(max(4, 8)); //8
 }
 
 /* TASK 04 */
 
 /* 
-	Дан массив c числами (строчного типа): 
-	[‘10’, ‘20’, ‘30’, ‘50’, ‘235’, ‘3000’]. 
-	Выведите на экран только те числа из массива, которые начинаются на цифру 1, 2 или 5.
+	Напишите две функции: 
+	первая ф-ция должна возвращать массив с числовыми значениями, диапазон которых должен вводиться пользователем с клавиатуры; 
+	вторая – выводить полученный массив.
 */
 
 {
-	let arr = ["10", "20", "30", "50", "235", "3000"];
+	let minValue = +prompt("Enter min value:");
+	let maxValue = +prompt("Enter max value:");
+	let length = +prompt("Enter length:");
 
-	for (const el of arr) {
-		if (el[0] == 1 || el[0] == 2 || el[0] == 5) {
-			console.log(el);
+	function setArray(min, max, length) {
+		let arr = new Array(length);
+
+		for (let i = 0; i < arr.length; i++) {
+			let value = Math.floor(Math.random() * (max - min) + min);
+			arr[i] = value;
 		}
+
+		return arr;
 	}
+
+	function getArray(arr) {
+		arr.forEach((element) => {
+			console.log(element);
+		});
+	}
+
+	let arr = setArray(minValue, maxValue, length);
+	getArray(arr);
 }
 
 /* TASK 05 */
 
 /* 
-	Составьте массив дней недели (ПН, ВТ, СР и т.д.). 
-	С помощью цикла for выведите все дни недели, 
-	а выходные дни выведите жирным.
+	Сделайте функцию isEven() (even - это четный), 
+	которая параметром принимает целое число и проверяет: четное оно или нет. 
+	Если четное - пусть функция возвращает true, если нечетное — false.
 */
 
 {
-	let arr = ["ПН", "ВТ", "СР", "ЧТ", "ПТ", "СБ", "ВС"];
-
-	for (const el of arr) {
-		if (el === "СБ" || el === "ВС") {
-			document.write(`<b>${el}</b> `);
+	let isEven = (num) => {
+		if (isFinite(num)) {
+			return num % 2 === 0 ? true : false;
 		} else {
-			document.write(`<span>${el}</span> `);
+			return "Value is not a number!";
 		}
-	}
+	};
+
+	console.log(isEven(1)); //false
+	console.log(isEven(2)); //true
+	console.log(isEven("Hello")); //Value is not a number!
 }
 
 /* TASK 06 */
 
 /* 
-	Создайте массив с произвольными данными. 
-	Добавьте в конец массива любой элемент, 
-	и получите последний элемент массива, 
-	используя свойство length.
+	Напишите ф-цию, в которую передается массив с целыми числами.
+	Верните новый массив, где останутся лежать только четные из этих чисел.
+	Для этого используйте вспомогательную функцию isEven из предыдущей
+задачи.
 */
 
 {
-	let arr = new Array(8);
+	let isEven = (num) => {
+		if (isFinite(num)) {
+			return num % 2 === 0 ? true : false;
+		} else {
+			return "Value is not a number!";
+		}
+	};
 
-	for (let el of arr) {
-		el = Math.floor(Math.random() * (100 - 50) + 50);
-		console.log(el);
+	function getEvenArray(arr) {
+		let evenArray = [];
+
+		arr.forEach((element) => {
+			isEven(element) ? evenArray.push(element) : null;
+		});
+
+		return evenArray;
 	}
 
-	arr.push("The end");
-	console.log(arr[arr.length - 1]);
+	let arr = [1, 2, 3, 4, 5, 6, 7, 8];
+	console.log(getEvenArray(arr)); //[2, 4, 6, 8]
 }
 
 /* TASK 07 */
 
 /* 
-	Запросите у пользователя по очереди числовые значения при помощи prompt и сохраните их в массив. 
-	Собирайте числа до тез пор пока пользователь не введет пустое значение.
-	Выведите получившийся массив на экран. 
-	Выполните сортировку чисел массива, и выведите его на экран.
+	Напишите ф-цию, которая рисует следующую пирамидку 
+	(использовать вложенные циклы):
+	1
+	22
+	333
+	4444
+	55555
+	666666
+	7777777
+	88888888
+	999999999
+
+	Кол-во рядов должно вводиться параметром. 
+	Если пользователь ввел доп.параметр, непредусмотренный ф-цией по умолчанию - один любой символ, кроме пробела, 
+	то пирамида должна быть нарисована этим символом, например:
+
+	*
+	**
+	***
+	****
+	*****
+	******
+	*******
+	********
+	*********
 */
 
 {
-	let arr = new Array();
+	function getPyramid(row) {
+		let line = "";
 
-	while (true) {
-		let element = prompt("Enter number", 10);
-
-		if (+element || element == 0) {
-			arr.push(element);
-		} else if (!isFinite(element)) {
-			alert("Only numbers");
-		} else {
-			break;
+		for (let i = 1; i <= row; i++) {
+			for (let j = 0; j < i; j++) {
+				if (arguments.length > 1) {
+					line += arguments[1];
+				} else {
+					line += i;
+				}
+			}
+			console.log(line);
+			line = "";
 		}
 	}
 
-	for (const el of arr) {
-		console.log(el);
-	}
-
-	arr.sort((a, b) => a - b);
-
-	for (const el of arr) {
-		console.log(el);
-	}
+	getPyramid(4);
+	getPyramid(4, "*");
 }
 
 /* TASK 08 */
 
 /* 
-	Переверните массив [12, false, ‘Текст’, 4, 2, -5, 0] 
-	(выведите в обратном порядке) 
-	используя цикл while и метод reverse.
+	Напишите ф-цию, которая рисует равнобедренный треугольник из
+	звездочек:
+	*
+	***
+	*****
+	*******
+	*********
+	Кол-во рядов должно вводиться с клавиатуры. 
+	Доп., напишите такую же ф-цию, но которая выведет перевернутый треугольник.
 */
 
 {
-	let arr = [12, false, "Текст", 4, 2, -5, 0];
-	arr.reverse();
-	let i = 0;
+	let row = +prompt("Etner number of rows:");
 
-	while (i < arr.length) {
-		console.log(arr[i]);
-		i++;
+	function getTriangle(row) {
+		let whiteSpace = " ".repeat(row - 1);
+		let symbol = "*";
+
+		for (let i = 0; i < row; i++) {
+			console.log(whiteSpace + symbol + whiteSpace);
+			whiteSpace = whiteSpace.substring(1);
+			symbol += "**";
+		}
 	}
+
+	function getInvertedTriangle(row) {
+		let line = ["*"];
+
+		while (row > 1) {
+			line.push("**");
+			row--;
+		}
+
+		let whiteSpace = "";
+
+		while (line.length > 0) {
+			console.log(whiteSpace + line.join("") + whiteSpace);
+			whiteSpace += " ";
+			line.length--;
+		}
+	}
+
+	getTriangle(row);
+	getInvertedTriangle(row);
 }
 
 /* TASK 09 */
 
 /* 
-	Напишите скрипт, считающий количество нулевых (пустых) элементов в заданном целочисленном массиве [5, 9, 21, , , 9, 78, , , , 6].
+	Напишите ф-цию, которая возвращает массив заполненный числами
+Фибоначи от 0 до 1000.
 */
 
 {
-	let arr = [5, 9, 21, , , 9, 78, , , , 6];
-	let count = 0;
+	function fib() {
+		let arr = [];
+		let a = 1;
+		let b = 1;
+		let c = 0;
 
-	for (const elem of arr) {
-		if (elem === undefined) [count++];
+		for (let i = 0; i < 1000; ) {
+			if (i < 2) {
+				arr.push(1);
+				i++;
+			} else {
+				c = a + b;
+				a = b;
+				b = c;
+				arr.push(b);
+				i = b;
+			}
+		}
+
+		arr.length -= 1;
+		return arr;
 	}
 
-	console.log(count);
+	console.log(fib()); //[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987]
 }
 
 /* TASK 10 */
 
 /* 
-	Найдите сумму элементов массива между двумя нулями 
-	(первым и последним нулями в массиве). 
-	Если двух нулей нет в массиве, то выведите ноль. 
-	В массиве может быть более 2х нулей. 
-	Пример массива: 
-	[48,9,0,4,21,2,1,0,8,84,76,8,4,13,2] 
-	или 
-	[1,8,0,13,76,8,7,0,22,0,2,3,2].
+	Дано число. 
+	Сложите его цифры. 
+	Если сумма получилась более 9-ти, опять сложите его цифры. 
+	И так, пока сумма не станет однозначным числом (9 и менее). 
+	Исп. Рекурсию.
 */
 
 {
-	let arr = [1, 8, 0, 13, 76, 8, 7, 0, 22, 0, 2, 3, 2];
+	let num = 248;
 
-	let start;
+	function getOneSymNum(num) {
+		let sum = 0;
+		let str = num.toString();
 
-	for (let i = 0; i < arr.length; i++) {
-		if (arr[i] === 0) {
-			start = i;
-			break;
+		for (let i = 0; i < str.length; i++) {
+			sum += +str[i];
 		}
+
+		return sum <= 9 ? sum : getOneSymNum(sum);
 	}
 
-	let end;
-
-	for (let i = arr.length; i > 0; i--) {
-		if (arr[i] === 0) {
-			end = i;
-			break;
-		}
-	}
-
-	let sum = 0;
-
-	if (start === undefined || end === undefined) {
-		console.log(0);
-	} else {
-		for (let i = start + 1; i < end; i++) {
-			sum += arr[i];
-		}
-		console.log(sum);
-	}
+	console.log(getOneSymNum(num)); //5
 }
 
 /* TASK 11 */
 
 /* 
-	Нарисовать равнобедренный треугольник из символов ^. 
-	Высоту выбирает пользователь. 
-	Например: высота = 5, на экране:
+	Дан массив с числами (передается параметром). 
+	Выведите последовательно его элементы, используя рекурсию и не используя цикл.
 */
 
 {
-	// Определяю размер многомерного массива
-	let arrHeight = prompt("Enter height of triangle:");
+	let numArr = [1, 2, 3, 4];
 
-	// Определяю длинну каждого элемента массива
-	let arrLength = 1;
+	function getArr(arr) {
+		let tempArr = arr;
 
-	for (let i = 1; i < arrHeight; i++) {
-		arrLength += 2;
-	}
-
-	// Создаю многомерный массив
-	let matrix = new Array(arrHeight);
-
-	for (let i = 0; i < arrHeight; i++) {
-		matrix[i] = new Array(arrLength);
-
-		for (let j = 0; j < matrix[i].length; j++) {
-			matrix[i][j] = " ";
+		if (tempArr.length) {
+			console.log(tempArr[0]);
+			tempArr.shift();
+			getArr(tempArr);
 		}
 	}
 
-	// Добавляю символы
-	let pos = arrLength / 2; //центральный элемент массива
-	let del = 1; //количество элементов для удаления
-	let sym = "^"; //символ для замены
+	getArr(numArr); // 1 2 3 4
+}
 
-	for (let i = 0; i < matrix.length; i++) {
-		matrix[i].splice(pos - i, del, sym);
-		sym += "^^";
-		del += 2;
-	}
+/* TASK 12 */
 
-	// Вывожу в консоль
-	let line = "";
+/* 
+	Напишите ф-цию, запрашивающую имя, фамилия, отчество и номер
+	группы студента и выводящую введённые данные в следующем виде:
+	*****************************
+	* Домашняя работа: «Функции» *
+	* Выполнил: студент гр. W4017 *
+	* Иванов Иван Иванович *
+	*****************************
+	Размер рамки должен определятся автоматически по самой длинной строке.
+	Рамку вывести в консоль.
+*/
 
-	for (let i = 0; i < matrix.length; i++) {
-		for (let j = 0; j < matrix[i].length; j++) {
-			line += matrix[i][j];
+{
+	let firstName = "Ivan";
+	let secondName = "Ivanov";
+	let thirdName = "Ivanovich";
+	let group = "FE130";
+
+	function getDataOfStudent(firstName, secondName, thirdName, group) {
+		//Присваиваю значенийа строкам
+		let lineTop = 'Homework: "Functions"';
+		let lineMid = `Executor: student ${group}`;
+		let lineBottom = `${secondName} ${firstName} ${thirdName}`;
+		let length = 4;
+
+		//Определйаю самую длинную строку
+		if (lineTop.length > lineMid.length) {
+			length +=
+				lineTop.length > lineBottom.length ? lineTop.length : lineBottom.length;
+		} else {
+			length +=
+				lineMid.length > lineBottom.length ? lineMid.length : lineBottom.length;
 		}
-		console.log(line);
-		line = "";
+
+		//Добавлйаю символ * в строки
+		let lineCommon = "*".repeat(length);
+		let lineLeft = "* ";
+		let lineRight = length - lineLeft.length - 1;
+
+		//Вывожу строки на консоль
+		console.log(lineCommon);
+		console.log(
+			lineLeft + lineTop + " ".repeat(lineRight - lineTop.length) + "*"
+		);
+		console.log(
+			lineLeft + lineMid + " ".repeat(lineRight - lineMid.length) + "*"
+		);
+		console.log(
+			lineLeft + lineBottom + " ".repeat(lineRight - lineBottom.length) + "*"
+		);
+		console.log(lineCommon);
 	}
+
+	getDataOfStudent(firstName, secondName, thirdName, group);
+}
+
+/* TASK 13 */
+
+/* 
+	Напишите ф-цию, которая должна проверить правильность ввода адреса
+	эл. почты, неиспользуя регулярные выражения. 
+	Почта верна при условии:
+
+	a. весь адрес не должен содержать русские буквы и спецсимволы, кроме
+	одной «собачки», знака подчеркивания, дефиса и точки, 
+	причем они не могут быть первыми и последними в адресе, и идти подряд, например: «..», «@.», «.@» или «@@», «_@», «@-», «--» и т.п.
+
+	b. имя эл. почты (до знака @) должно быть длиной более 2 символов, причем
+	имя может содержать только буквы, цифры, но не быть первыми и
+	единственными в имени, и точку;
+
+	c. после последней точки и после @, домен верхнего уровня (ru, by, com и
+	т.п.) не может быть длиной менее 2 и более 11 символов.
+*/
+
+{
 }
